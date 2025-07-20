@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { User } from '../../models/users';
+import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
     selector: 'app-user-search',
@@ -10,9 +12,12 @@ import { User } from '../../models/users';
 export class UserSearchComponent implements OnInit {
     users: User[] = [];
     searchText: string = '';
-    loading: boolean = false;
 
-    constructor(private userService: UsersService) {}
+    constructor(
+        private userService: UsersService,
+        private router: Router,
+        private messageService: MessageService
+    ) {}
 
     ngOnInit(): void {
         this.loadUsers();
@@ -24,14 +29,23 @@ export class UserSearchComponent implements OnInit {
         );
     }
 
+    goToDetail(user: User) {
+        this.router.navigate(['/users', user.id], {
+            state: { user },
+        });
+    }
+
     loadUsers(): void {
         this.userService.getUsers().subscribe(
             (data: User[]) => {
-                console.log('Users loaded successfully:', data);
                 this.users = data;
             },
             (error) => {
-                console.error('Error loading users', error);
+                this.messageService.add({
+                    severity: 'error',
+                    summary: 'Hata',
+                    detail: 'Kullanıcılar yüklenemedi',
+                });
             }
         );
     }

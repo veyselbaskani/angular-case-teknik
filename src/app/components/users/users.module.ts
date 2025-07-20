@@ -15,7 +15,6 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { RippleModule } from 'primeng/ripple';
 import { InputTextModule } from 'primeng/inputtext';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { ToastModule } from 'primeng/toast';
 import { PanelModule } from 'primeng/panel';
 import { UserSearchComponent } from './pages/user-search/user-search.component';
 import { UserDetailComponent } from './pages/user-detail/user-detail.component';
@@ -38,7 +37,6 @@ import { UserDetailComponent } from './pages/user-detail/user-detail.component';
         RippleModule,
         InputTextModule,
         ProgressSpinnerModule,
-        ToastModule,
         PanelModule,
     ],
     declarations: [UserSearchComponent, UserDetailComponent],

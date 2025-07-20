@@ -11,22 +11,18 @@
 
                 <div class="grid">
                     <div class="col-12 md:col-4 lg:col-3" *ngFor="let user of filteredUsers()">
-                        <a [routerLink]="['/users', user.id]" class="user-card-link">
-                            <p-card class="user-card" styleClass="p-card-shadow">
+                        <div (click)="goToDetail(user)" class="user-card-link" style="cursor: pointer;"> <p-card
+                                class="user-card" styleClass="p-card-shadow">
                                 <ng-template pTemplate="header">
                                     <p-avatar label="{{ user.name.charAt(0) }}" shape="circle" class="mr-2" style="
-                                            background-color: #3f51b5;
-                                            color: white;
-                                        "></p-avatar>
+                                        background-color: #3f51b5;
+                                        color: white;
+                                    "></p-avatar>
                                     Kullanıcı Kartı
                                 </ng-template>
 
-                                <div>
-                                    <strong>İsim:</strong> {{ user.name }}
-                                </div>
-                                <div>
-                                    <strong>Eposta:</strong> {{ user.email }}
-                                </div>
+                                <div><strong>İsim:</strong> {{ user.name }}</div>
+                                <div><strong>Eposta:</strong> {{ user.email }}</div>
                                 <div>
                                     <strong>Şehir:</strong>
                                     {{ user.address.city }}
@@ -36,16 +32,11 @@
                                     {{ user.company.name }}
                                 </div>
                             </p-card>
-                        </a>
+                        </div>
+
                     </div>
                 </div>
             </p-panel>
         </div>
     </div>
 </div>
-
-<div class="overlay" *ngIf="loading">
-    <p-progressSpinner></p-progressSpinner>
-</div>
-
-<p-toast position="top-right"></p-toast>
