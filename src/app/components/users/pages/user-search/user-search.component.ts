@@ -12,6 +12,7 @@ import { MessageService } from 'primeng/api';
 export class UserSearchComponent implements OnInit {
     users: User[] = [];
     searchText: string = '';
+    loading: boolean = true;
 
     constructor(
         private userService: UsersService,
@@ -39,6 +40,7 @@ export class UserSearchComponent implements OnInit {
         this.userService.getUsers().subscribe(
             (data: User[]) => {
                 this.users = data;
+                this.loading = false;
             },
             (error) => {
                 this.messageService.add({

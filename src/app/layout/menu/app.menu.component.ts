@@ -15,7 +15,7 @@ export class AppMenuComponent implements OnInit {
     ngOnInit() {
         this.model = [
             {
-                label: 'Gösterge Paneli',
+                label: 'Sayfalar',
                 items: [
                     { label: 'Ana Sayfa', icon: 'pi pi-fw pi-home', routerLink: ['/'] }
                 ]
