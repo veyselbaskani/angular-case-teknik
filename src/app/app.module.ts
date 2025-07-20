@@ -3,8 +3,9 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppLayoutModule } from './layout/layout/app.layout.module';
-import { NotfoundComponent } from './demo/components/notfound/notfound.component';
-import { UsersService } from './demo/components/dashboard/services/users.service';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+import { UsersService } from './components/users/services/users.service';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
     declarations: [AppComponent, NotfoundComponent],
@@ -12,7 +13,8 @@ import { UsersService } from './demo/components/dashboard/services/users.service
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         UsersService,
+        MessageService
     ],
-    bootstrap: [AppComponent],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}

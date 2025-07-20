@@ -1,7 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { NotfoundComponent } from './demo/components/notfound/notfound.component';
 import { AppLayoutComponent } from "./layout/layout/app.layout.component";
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 @NgModule({
     imports: [
@@ -9,7 +9,7 @@ import { AppLayoutComponent } from "./layout/layout/app.layout.component";
             {
                 path: '', component: AppLayoutComponent,
                 children: [
-                    { path: '', loadChildren: () => import('./demo/components/dashboard/dashboard.module').then(m => m.DashboardModule) },
+                    { path: '', loadChildren: () => import('./components/users/users.module').then(m => m.UserModule) },
                 ]
             },
             { path: 'notfound', component: NotfoundComponent },
